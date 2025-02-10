@@ -1,5 +1,5 @@
 # Desafio Técnico
-Desafio entregue para um processo seletivo.
+Desafio entregue para um processo seletivo utilizando o notebook do Google Colab.
 
 ## Visão Geral
 Para otimizar a receita de Food Delivery e aumentar a competitividade do
@@ -96,7 +96,7 @@ A partir desses questionamento identifiquei duas principais oportunidades:
 
 ### Revisão do critério de classificação de performance
 
-Por padrão, um cliente estratégico era classificado basicamente por ter um alto AOV (Average order value), porém, ao notar potencial de fazer upgrade de vários clientes long tail e talvez possíveis downgrades de alguns key accounts, foi estruturado um modelo estatístico para realizar essa classificação levando em conta diversos dados (Regressão Logística Múltipla).
+Por padrão, um cliente estratégico era classificado basicamente por ter um alto AOV (Average order value), porém, ao notar potencial de fazer upgrade de vários clientes long tail e talvez possíveis downgrades de alguns key accounts, foi estruturado um modelo estatístico para realizar essa classificação levando em conta diversos dados (Regressão Logística Múltipla - 89% de acurácia).
 
 Usando a técnica de análise de feature importances, estes dados foram elencados para o modelo:
 
@@ -118,9 +118,9 @@ Agora com a nova classificação estatística dos key accounts (KA) e long tails
 
 Essa estratégia baseia-se em: dar descontos relevantes para KAs, enquanto LTs têm um incremento sutil no valor, mas que no montante compensam os descontos cedidos. Vale ressaltar que apenas KAs que já estão no modelo de negócio Full Service vão ser contemplados com este desconto, assim como apenas LTs que estão no marketplace irão receber os incrementos.
 
-Para estimar o possível impacto de receita desta nova estratégia, foi criado um segundo modelo estatístico onde basicamente ele é alimentado por um novo valor de comissão - este já com o desconto ou incremento para os devidos restaurantes - e prevê um novo valor de receita, utilizando uma Regressão Linear Simples.
+Para estimar o possível impacto de receita desta nova estratégia, foi criado um segundo modelo estatístico onde basicamente ele é alimentado por um novo valor de comissão - este já com o desconto ou incremento para os devidos restaurantes - e prevê um novo valor de receita, utilizando uma Regressão Linear Simples (Coeficiente de determinação[R²]: 99%).
 
-Com o resultado dessa base de dados com a nova comissão simulada, entra em ação o terceiro modelo estatístico, que leva diversas variáveis em consideração para tentar prever a probabilidade de um restaurante migrar de modelo de negócio (se tornar Full Service[FS] ou Marketplace[MKTP]).
+Com o resultado dessa base de dados com a nova comissão simulada, entra em ação o terceiro modelo estatístico, que leva diversas variáveis em consideração para tentar prever a probabilidade de um restaurante migrar de modelo de negócio (se tornar Full Service[FS] ou Marketplace[MKTP] - Regressão Logística Múltipla com 94% de acurácia)
 
 ### Resultado
 
